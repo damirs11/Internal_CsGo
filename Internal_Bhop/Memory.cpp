@@ -9,8 +9,9 @@
 Memory::Memory() noexcept
 {
 	try {
-		present = findPattern("gameoverlayrenderer", "\xFF\x15.{4}\x8B\xF8\x85\xDB") + 2;
-		reset = findPattern("gameoverlayrenderer", "\xC7\x45.{5}\xFF\x15.{4}\x8B\xF8") + 9;
+		present = findPattern("gameoverlayrenderer", "\xFF\x15.{4}\x8B\xF8\x85\xDB") + 2; //15 FF 96 34 10 10 F8 8B DB
+		reset = findPattern("gameoverlayrenderer", "\xC7\x45.{5}\xFF\x15.{4}\x8B\xF8") + 9;  //C7 57 FC 45 00 00 00 00
+																							 //15 FF 96 30 10 10 F8 8B
 	}
 	catch (const std::runtime_error& e) {
 		MessageBox(NULL, e.what(), "Error", MB_OK | MB_ICONERROR);
